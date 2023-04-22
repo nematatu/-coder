@@ -1,0 +1,17 @@
+name: karuta_coder
+description: An example of how to use custom fonts with Flutter
+
+dependencies:
+  dart_openai: ^1.9.1
+  flutter:
+    sdk: flutter
+  provider: ^4.1.1
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+environment:
+  sdk: '^2.12.0' 
+  
+flutter:
+  uses-material-design: true
