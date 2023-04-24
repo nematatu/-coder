@@ -14,4 +14,35 @@ environment:
   sdk: '^2.12.0' 
   
 flutter:
+  fonts:
+    - family: Murecho
+      fonts:
+        - asset: assets/font/MureCho/static/Murecho-Thin.ttf
+          weight: 100
+        - asset: assets/font/MureCho/static/Murecho-ExtraLight.ttf
+          weight: 200
+        - asset: assets/font/MureCho/static/Murecho-Light.ttf
+          weight: 300
+        - asset: assets/font/MureCho/static/Murecho-Regular.ttf
+          weight: 400
+        - asset: assets/font/MureCho/static/Murecho-Medium.ttf
+          weight: 500
+        - asset: assets/font/MureCho/static/Murecho-SemiBold.ttf
+          weight: 600
+        - asset: assets/font/MureCho/static/Murecho-Bold.ttf
+          weight: 700
+        - asset: assets/font/MureCho/static/Murecho-ExtraBold.ttf
+          weight: 800
+        - asset: assets/font/MureCho/static/Murecho-Black.ttf
+          weight: 900
   uses-material-design: true
+  assets:
+    - images/
+    - images/logo1.png
+    - images/karutalogo.png
+    - images/background_tatami1.jpeg
+    - images/background_tatami2.jpeg
+    - images/ougi.png
+    - images/karuta.png
+    - images/tatami.png
+    - assets/
