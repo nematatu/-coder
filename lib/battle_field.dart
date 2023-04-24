@@ -3,7 +3,6 @@ import 'dart:ui' as ui;
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/services.dart';
-import 'package:marquee/marquee.dart';
 
 class battle_field extends StatelessWidget {
   final _controller = TextEditingController();
@@ -16,18 +15,23 @@ class battle_field extends StatelessWidget {
       appBar: AppBar(
         title: Text('battle_field'),
       ),
-      body: Container(
-        child: TextFormField(
-          controller: _controller,
-          textAlign: TextAlign.right,
-          decoration: InputDecoration(border: InputBorder.none),
-          style: const TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.normal,
-            fontFamily: ('Roboto'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          TextFormField(
+            controller: _controller,
+            textAlign: TextAlign.right,
+            decoration: InputDecoration(border: InputBorder.none),
+            style: const TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.normal,
+              fontFamily: ('Roboto'),
+            ),
+            enabled: false,
           ),
-          enabled: false,
-        ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
@@ -51,4 +55,24 @@ class battle_field extends StatelessWidget {
       return 'no data';
     }
   }
+}
+
+class MyPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint p = Paint();
+    p.style = PaintingStyle.fill;
+    p.color = Color.fromARGB(150, 200, 0, 255);
+    Rect r = Rect.fromLTWH(50, 50, 150, 150);
+    canvas.drawRect(r, p);
+
+    p.style = PaintingStyle.stroke;
+    p.color = Color.fromARGB(100, 100, 150, 150);
+    p.strokeWidth = 10;
+    r = Rect.fromLTWH(100, 100, 150, 150);
+    canvas.drawRect(r, p);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
