@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'document_page.dart';
 import 'battle_field.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class battle_page extends StatelessWidget {
-  static var api_produce_controller = TextEditingController();
-
+  static var _controller = TextEditingController();
+  static var select_icon = '';
+  String icon_number1 = 'GitHub';
+  String icon_number2 = 'PhotoShop';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,50 +18,77 @@ class battle_page extends StatelessWidget {
       body: SingleChildScrollView(
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(50),
-                child: TextField(
-                  controller: api_produce_controller,
-                  style: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Roboto',
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    width: 300,
+                    child: TextField(
+                      controller: _controller,
+                      style: TextStyle(
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Roboto',
+                      ),
+                      textAlign: TextAlign.center,
+                      //decoration: InputDecoration(border: OutlineInputBorder()),
+                    ),
                   ),
-                  textAlign: TextAlign.center,
-                  //decoration: InputDecoration(border: OutlineInputBorder()),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => battle_field()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
-                  elevation: 10,
-                  fixedSize: Size(150, 60),
-                  shape: newMethod(),
-                ),
-                child: Text(
-                  '戦う！',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.normal,
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => battle_field(
+                                  value: _controller.text,
+                                  icon: select_icon,
+                                )),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.blue,
+                      elevation: 10,
+                      fixedSize: Size(50, 60),
+                      shape: newMethod(),
+                    ),
+                    child: Icon(Icons.create),
                   ),
-                ),
+                ],
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      select_icon = icon_number1;
+                    },
+                    child: SizedBox(
+                      child: SvgPicture.network(
+                        'https://knaebrbelwfyrznszyyq.supabase.co/storage/v1/object/public/test/images/$icon_number1/$icon_number1.svg',
+                      ),
+                      width: 70,
+                      height: 70,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      select_icon = icon_number2;
+                    },
+                    child: SizedBox(
+                      child: SvgPicture.network(
+                        'https://knaebrbelwfyrznszyyq.supabase.co/storage/v1/object/public/test/images/$icon_number2/$icon_number2.svg',
+                      ),
+                      width: 70,
+                      height: 70,
+                    ),
+                  ),
                   TextButton(
                     child: Text(
                       '過去に作成した札を使用',
