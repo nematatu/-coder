@@ -53,7 +53,7 @@ class battle_page extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       primary: Colors.blue,
                       elevation: 10,
-                      fixedSize: Size(50, 60),
+                      fixedSize: Size(60, 30),
                       shape: newMethod(),
                     ),
                     child: Icon(Icons.create),

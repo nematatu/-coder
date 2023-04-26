@@ -1,32 +1,35 @@
 import 'package:flutter/material.dart';
-import './next_page.dart';
 import 'package:flutter/services.dart';
+import './next_page.dart';
+import './battle_page.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: 'Roboto',
       ),
-      home: const MyHomePage(title: 'test_code'),
+      home: MyHomePage(
+        title: 'test_code',
+      ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
-  final String title;
+  String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -36,35 +39,44 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            const Text(
-              'カルタCoder',
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(
+                'https://knaebrbelwfyrznszyyq.supabase.co/storage/v1/object/public/test/elements/background/title_background.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  child: Image.network(
+                      'https://knaebrbelwfyrznszyyq.supabase.co/storage/v1/object/public/test/elements/background/title_name_background.jpg'),
+                  width: 400,
+                  height: 300,
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.pink,
+                      elevation: 10,
+                      fixedSize: Size(200, 60),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50))),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => next_page()),
+                    );
+                  },
+                  child: Text('スタート'),
+                ),
+              ],
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => next_page()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
-                minimumSize: Size(100, 50),
-                elevation: 10,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50)),
-              ),
-              child: const Text(
-                'start',
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

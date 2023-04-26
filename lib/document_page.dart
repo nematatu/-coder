@@ -4,13 +4,13 @@ class document_page extends StatelessWidget {
   @override
   build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('test_code'),
-      ),
-      body: Center(
-        child: Container(
-          color: Colors.red,
-        ),
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+          image: NetworkImage(
+              'https://knaebrbelwfyrznszyyq.supabase.co/storage/v1/object/public/test/elements/background/document_background.jpeg'),
+          fit: BoxFit.cover,
+        )),
       ),
     );
   }
