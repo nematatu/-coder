@@ -45,4 +45,7 @@ flutter:
     - images/ougi.png
     - images/karuta.png
     - images/tatami.png
+    - images/karuta_taisen.png
+    - images/karuta_huda.png
+    - images/washitu.png
     - assets/

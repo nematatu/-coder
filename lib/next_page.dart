@@ -13,7 +13,8 @@ class Nextpage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/background_tatami2.jpeg'),
+            image: AssetImage('images/washitu.png'),
+            // image: AssetImage('images/background_tatami2.jpeg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -31,19 +32,34 @@ class Nextpage extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.green[800],
-                  fixedSize: Size(150, 200),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
+                  // shape: RoundedRectangleBorder(
+                  //   borderRadius: BorderRadius.circular(20),
+                  // ),
+                  padding: EdgeInsets.all(0.0),
+                  elevation: 0,
+                  // primary: Colors.green,
                 ),
-                child: Text(
-                  '対戦',
-                  style: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.normal,
-                    fontFamily: 'Roboto',
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('images/karuta_taisen.png'),
+                      fit: BoxFit.cover,
+                    ),
+                    // borderRadius: BorderRadius.circular(20),
                   ),
+                  height: 200,
+                  width: 150,
+                  // child: Center(
+                  //   child: Text(
+                  //     '対戦',
+                  //     style: TextStyle(
+                  //       fontSize: 40,
+                  //       fontWeight: FontWeight.normal,
+                  //       fontFamily: 'Roboto',
+                  //       color: Colors.black,
+                  //     ),
+                  //   ),
+                  // ),
                 ),
               ),
               ElevatedButton(
@@ -66,24 +82,24 @@ class Nextpage extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('images/karuta.png'),
+                      image: AssetImage('images/karuta_huda.png'),
                       fit: BoxFit.cover,
                     ),
                     // borderRadius: BorderRadius.circular(20),
                   ),
                   height: 200,
                   width: 150,
-                  child: Center(
-                    child: Text(
-                      '札一覧',
-                      style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: 'Roboto',
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
+                  // child: Center(
+                  //   child: Text(
+                  //     '札一覧',
+                  //     style: TextStyle(
+                  //       fontSize: 40,
+                  //       fontWeight: FontWeight.normal,
+                  //       fontFamily: 'Roboto',
+                  //       color: Colors.black,
+                  //     ),
+                  //   ),
+                  // ),
                 ),
               )
             ],
