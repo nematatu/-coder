@@ -10,7 +10,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 class battle_field extends StatefulWidget {
   final String value;
   final String icon;
-  final String test_icon;
+  final String fuda_icon0;
+  final String fuda_icon1;
+  final String fuda_icon2;
+  final String fuda_icon3;
+  final String fuda_icon4;
+  final String fuda_icon5;
+  final String fuda_icon6;
   final String fuda0;
   final String fuda1;
   final String fuda2;
@@ -18,12 +24,19 @@ class battle_field extends StatefulWidget {
   final String fuda4;
   final String fuda5;
   final String fuda6;
+  final String StringData0;
 
   const battle_field({
     Key? key,
     required this.value,
     required this.icon,
-    required this.test_icon,
+    required this.fuda_icon0,
+    required this.fuda_icon1,
+    required this.fuda_icon2,
+    required this.fuda_icon3,
+    required this.fuda_icon4,
+    required this.fuda_icon5,
+    required this.fuda_icon6,
     required this.fuda0,
     required this.fuda1,
     required this.fuda2,
@@ -31,6 +44,7 @@ class battle_field extends StatefulWidget {
     required this.fuda4,
     required this.fuda5,
     required this.fuda6,
+    required this.StringData0,
   }) : super(key: key);
 
   State<battle_field> createState() => _battle_fieldState();
@@ -50,7 +64,14 @@ class _battle_fieldState extends State<battle_field> {
   String fuda4 = '';
   String fuda5 = '';
   String fuda6 = '';
-  String test_icon = '';
+  String fuda_icon0 = '';
+  String fuda_icon1 = '';
+  String fuda_icon2 = '';
+  String fuda_icon3 = '';
+  String fuda_icon4 = '';
+  String fuda_icon5 = '';
+  String fuda_icon6 = '';
+  String StringData0 = '';
 
   @override
   void initState() {
@@ -64,53 +85,60 @@ class _battle_fieldState extends State<battle_field> {
     fuda4 = widget.fuda4;
     fuda5 = widget.fuda5;
     fuda6 = widget.fuda6;
-    test_icon = widget.test_icon;
+    fuda_icon0 = widget.fuda_icon0;
+    fuda_icon1 = widget.fuda_icon1;
+    fuda_icon2 = widget.fuda_icon2;
+    fuda_icon3 = widget.fuda_icon3;
+    fuda_icon4 = widget.fuda_icon4;
+    fuda_icon5 = widget.fuda_icon5;
+    fuda_icon6 = widget.fuda_icon6;
+    StringData0 = widget.StringData0;
   }
 
   build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          TextField(
-            controller: _controller,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              /*MyContainer(image_name, view_icon),
-              Spacer(),
-              My_Sub_Container(fuda0, test_icon),
-              Spacer(),
-              My_Sub_Container(fuda1, test_icon),
-              Spacer(),
-              My_Sub_Container(fuda2, test_icon),
-            ],
-          ),
-          Spacer(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              My_Sub_Container(fuda3, test_icon),
-              Spacer(),
-              My_Sub_Container(fuda4, test_icon),
-              Spacer(),
-              My_Sub_Container(fuda5, test_icon),
-              Spacer(),
-              My_Sub_Container(fuda6, test_icon),
-            ],
-          ),*/
-            ],
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                MyContainer(image_name, view_icon),
+                Spacer(),
+                My_Sub_Container(fuda0, fuda_icon0),
+                Spacer(),
+                My_Sub_Container(fuda1, fuda_icon1),
+                Spacer(),
+                My_Sub_Container(fuda2, fuda_icon2),
+              ],
+            ),
+            /*TextField(
+              controller: _controller,
+            ),*/
+            Text(StringData0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                My_Sub_Container(fuda3, fuda_icon3),
+                Spacer(),
+                My_Sub_Container(fuda4, fuda_icon4),
+                Spacer(),
+                My_Sub_Container(fuda5, fuda_icon5),
+                Spacer(),
+                My_Sub_Container(fuda6, fuda_icon6),
+              ],
+            ),
+          ],
+        ),
       ),
-      floatingActionButton: FloatingActionButton(
+      /*floatingActionButton: FloatingActionButton(
         onPressed: () async {
           final value = await loadIt();
           _controller.text = value;
         },
         child: Icon(Icons.savings),
-      ),
+      ),*/
     );
   }
 
