@@ -59,6 +59,25 @@ flutter:
     - assets/documents/odai.txt
     - assets/images/PhotoShop/PhotoShop.svg
     - assets/images/GitHub/GitHub.svg
+    - assets/images/android/android.svg
+    - assets/images/java/java.svg
+    - assets/images/Python/Python.svg
+    - assets/images/VSCode/VSCode.svg
+    - assets/images/Hackathon/Twitter.svg
+    
+    - assets/images/GitHub/GitHub.jpg
+    - assets/images/android/android.jpg
+    - assets/images/java/java.jpg
+    - assets/images/PhotoShop/PhotoShop.jpg
+    - assets/images/Python/Python.jpg
+    - assets/images/Hackathon/Hackathon.jpg
+    - assets/images/VSCode/VSCode.jpg
+    - assets/background/sakura.png
+    - assets/background/logo1.png
+    - assets/background/washitu1.jpg
+    - assets/background/background_tatami2.jpeg
+    - assets/background/karuta_huda.png
+    - assets/background/karuta_taisen.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

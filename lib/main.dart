@@ -42,8 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(
-                'https://knaebrbelwfyrznszyyq.supabase.co/storage/v1/object/public/test/elements/background/title_background.jpg'),
+            image: AssetImage('assets/background/sakura.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -54,8 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  child: Image.network(
-                      'https://knaebrbelwfyrznszyyq.supabase.co/storage/v1/object/public/test/elements/background/title_name_background.jpg'),
+                  child: Image.asset('assets/background/logo1.png'),
                   width: 400,
                   height: 300,
                 ),
