@@ -25,6 +25,19 @@ class battle_field extends StatefulWidget {
   final String fuda5;
   final String fuda6;
   final String StringData0;
+  final String StringData1;
+  final String StringData2;
+  final String StringData3;
+  final String StringData4;
+  final String StringData5;
+  final String StringData6;
+  final int con_num0;
+  final int con_num1;
+  final int con_num2;
+  final int con_num3;
+  final int con_num4;
+  final int con_num5;
+  final int con_num6;
 
   const battle_field({
     Key? key,
@@ -45,6 +58,19 @@ class battle_field extends StatefulWidget {
     required this.fuda5,
     required this.fuda6,
     required this.StringData0,
+    required this.StringData1,
+    required this.StringData2,
+    required this.StringData3,
+    required this.StringData4,
+    required this.StringData5,
+    required this.StringData6,
+    required this.con_num0,
+    required this.con_num1,
+    required this.con_num2,
+    required this.con_num3,
+    required this.con_num4,
+    required this.con_num5,
+    required this.con_num6,
   }) : super(key: key);
 
   State<battle_field> createState() => _battle_fieldState();
@@ -72,6 +98,20 @@ class _battle_fieldState extends State<battle_field> {
   String fuda_icon5 = '';
   String fuda_icon6 = '';
   String StringData0 = '';
+  String StringData1 = '';
+  String StringData2 = '';
+  String StringData3 = '';
+  String StringData4 = '';
+  String StringData5 = '';
+  String StringData6 = '';
+  int con_num0 = 0;
+  int con_num1 = 0;
+  int con_num2 = 0;
+  int con_num3 = 0;
+  int con_num4 = 0;
+  int con_num5 = 0;
+  int con_num6 = 0;
+  String correct = '';
 
   @override
   void initState() {
@@ -93,6 +133,13 @@ class _battle_fieldState extends State<battle_field> {
     fuda_icon5 = widget.fuda_icon5;
     fuda_icon6 = widget.fuda_icon6;
     StringData0 = widget.StringData0;
+    StringData1 = widget.StringData1;
+    StringData2 = widget.StringData2;
+    StringData3 = widget.StringData3;
+    StringData4 = widget.StringData4;
+    StringData5 = widget.StringData5;
+    StringData6 = widget.StringData6;
+    con_num0 = widget.con_num0;
   }
 
   build(BuildContext context) {
@@ -106,17 +153,52 @@ class _battle_fieldState extends State<battle_field> {
               children: <Widget>[
                 MyContainer(image_name, view_icon),
                 Spacer(),
-                My_Sub_Container(fuda0, fuda_icon0),
+                GestureDetector(
+                  onTap: () {
+                    if (con_num0 == con_num0) {
+                      print('正解です');
+                    } else {
+                      print('不正解です');
+                    }
+                  },
+                  child: My_Sub_Container(fuda0, fuda_icon0),
+                ),
+                Text(correct),
                 Spacer(),
-                My_Sub_Container(fuda1, fuda_icon1),
+                GestureDetector(
+                  onTap: () {
+                    if (con_num1 == con_num0) {
+                      print('正解です');
+                    } else {
+                      print('不正解です');
+                    }
+                  },
+                  child: My_Sub_Container(fuda1, fuda_icon1),
+                ),
                 Spacer(),
-                My_Sub_Container(fuda2, fuda_icon2),
+                GestureDetector(
+                  onTap: () {
+                    if (con_num2 == con_num0) {
+                      print('正解です');
+                    } else {
+                      print('不正解です');
+                    }
+                  },
+                  child: My_Sub_Container(fuda2, fuda_icon2),
+                ),
               ],
             ),
             /*TextField(
               controller: _controller,
             ),*/
-            Text(StringData0),
+            Text(
+              StringData0,
+              style: TextStyle(
+                fontFamily: ('Roboto'),
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -202,7 +284,8 @@ Container MyContainer(String imageName, String view_icon) {
   );
 }
 
-Container My_Sub_Container(String Sub_imageName, String Sub_view_icon) {
+Container My_Sub_Container(
+    String Sub_imageName, String Sub_view_icon /*,int con_num*/) {
   return Container(
     width: 100,
     height: 160,
@@ -212,15 +295,17 @@ Container My_Sub_Container(String Sub_imageName, String Sub_view_icon) {
         Positioned(
           top: 5,
           right: 7.5,
-          child: Container(
-            width: 85,
-            height: 150,
-            color: Color.fromARGB(255, 218, 218, 218),
+          child: GestureDetector(
             child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(Sub_imageName),
-                  fit: BoxFit.cover,
+              width: 85,
+              height: 150,
+              color: Color.fromARGB(255, 218, 218, 218),
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(Sub_imageName),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
