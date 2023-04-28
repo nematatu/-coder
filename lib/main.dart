@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        fontFamily: 'Roboto',
+        //fontFamily: 'Roboto',
       ),
       home: MyHomePage(
         title: 'test_code',
