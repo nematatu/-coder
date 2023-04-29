@@ -80,8 +80,7 @@ flutter:
     - assets/background/background_tatami2.jpeg
     - assets/background/karuta_huda.png
     - assets/background/karuta_taisen.png
-    - assets/background/seikai.png
-    - assets/background/result.jpg
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
