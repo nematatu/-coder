@@ -7,7 +7,7 @@ class document_page extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-          image: NetworkImage('assets/background/background_tatami2.jpeg'),
+          image: AssetImage('assets/background/background_tatami2.jpeg'),
           fit: BoxFit.cover,
         )),
       ),

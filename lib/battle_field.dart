@@ -8,6 +8,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'dart:math';
 import 'package:http/http.dart' as http;
+import 'dart:async';
+
+import 'package:test/last_page.dart';
 
 class battle_field extends StatefulWidget {
   final String value;
@@ -96,18 +99,29 @@ class _battle_fieldState extends State<battle_field> {
 
   String context0 = String_Data[ran_numx].toString();
 
+  Timer? _timer;
+
   final _controller = TextEditingController();
   final __controller = TextEditingController();
   final _StringData = 'assets/documents/odai.txt';
   String _text = '';
   String image_name = '';
   String view_icon = '';
-
+  int get_point = 0;
   @override
   void initState() {
     super.initState();
     image_name = widget.value;
     view_icon = widget.icon;
+    _timer = Timer(Duration(seconds: 3), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => last_page(
+                  get_point: get_point,
+                )),
+      );
+    });
   }
 
   build(BuildContext context) {
@@ -122,31 +136,32 @@ class _battle_fieldState extends State<battle_field> {
                 MyContainer(image_name, view_icon),
                 Spacer(),
                 GestureDetector(
-                  onTap: () {
-                    if (/*String_Data[ran_num1].toS                                                                                                                                                                                                                                                                                                     tring() ==
-                            '開発の記録　管理する場所　Githubでしまえ' &&
-                        _Data[ran_num0].assets_image ==
-                            'assets/images/GitHub/GitHub.jpg'*/
-                        ran_num0 == ran_numx) {
-                      print('正解です');
-                      context0 = '正解です';
-                    } else {
-                      print('間違っています');
-                      context0 = '間違っています';
-                    }
-                    setState(() {});
-                  },
-                  child: My_Sub_Container(_Data0, Sub_svg0),
-                ),
+                    onTap: () {
+                      setState(() {
+                        if (ran_num0 == ran_numx) {
+                          print('正解です');
+                          context0 = '正解です';
+                          get_point++;
+                        } else {
+                          print('間違っています');
+                          context0 = '間違っています';
+                          get_point--;
+                        }
+                        setState(() {});
+                      });
+                    },
+                    child: My_Sub_Container(_Data0, Sub_svg0)),
                 Spacer(),
                 GestureDetector(
                   onTap: () {
                     if (ran_num1 == ran_numx) {
                       print('正解です');
                       context0 = '正解です';
+                      get_point++;
                     } else {
                       print('間違っています');
                       context0 = '間違っています';
+                      get_point--;
                     }
                     setState(() {});
                   },
@@ -158,9 +173,11 @@ class _battle_fieldState extends State<battle_field> {
                     if (ran_num2 == ran_numx) {
                       print('正解です');
                       context0 = '正解です';
+                      get_point++;
                     } else {
                       print('間違っています');
                       context0 = '間違っています';
+                      get_point--;
                     }
                     setState(() {});
                   },
@@ -194,34 +211,7 @@ class _battle_fieldState extends State<battle_field> {
                         icon: Icon(Icons.refresh),
                         color: Colors.white,
                         onPressed: () {
-                          setState(() {
-                            ran_numx = Random().nextInt(6);
-                            context0 = String_Data[ran_numx].toString();
-
-                            int ran_num0 = Random().nextInt(6);
-                            int ran_num1 = Random().nextInt(6);
-                            int ran_num2 = Random().nextInt(6);
-                            int ran_num3 = Random().nextInt(6);
-                            int ran_num4 = Random().nextInt(6);
-                            int ran_num5 = Random().nextInt(6);
-                            int ran_num6 = Random().nextInt(6);
-
-                            _Data0 = _Data[ran_num0].assets_image;
-                            _Data1 = _Data[ran_num1].assets_image;
-                            _Data2 = _Data[ran_num2].assets_image;
-                            _Data3 = _Data[ran_num3].assets_image;
-                            _Data4 = _Data[ran_num4].assets_image;
-                            _Data5 = _Data[ran_num5].assets_image;
-                            _Data6 = _Data[ran_num6].assets_image;
-
-                            Sub_svg0 = _Data[ran_num0].assets_svg;
-                            Sub_svg1 = _Data[ran_num1].assets_svg;
-                            Sub_svg2 = _Data[ran_num2].assets_svg;
-                            Sub_svg3 = _Data[ran_num3].assets_svg;
-                            Sub_svg4 = _Data[ran_num4].assets_svg;
-                            Sub_svg5 = _Data[ran_num5].assets_svg;
-                            Sub_svg6 = _Data[ran_num6].assets_svg;
-                          });
+                          icon_press();
                         },
                       ),
                     ),
@@ -238,9 +228,11 @@ class _battle_fieldState extends State<battle_field> {
                     if (ran_num3 == ran_numx) {
                       print('正解です');
                       context0 = '正解です';
+                      get_point++;
                     } else {
                       print('間違っています');
                       context0 = '間違っています';
+                      get_point--;
                     }
                     setState(() {});
                   },
@@ -252,9 +244,11 @@ class _battle_fieldState extends State<battle_field> {
                     if (ran_num4 == ran_numx) {
                       print('正解です');
                       context0 = '正解です';
+                      get_point++;
                     } else {
                       print('間違っています');
                       context0 = '間違っています';
+                      get_point--;
                     }
                     setState(() {});
                   },
@@ -266,9 +260,11 @@ class _battle_fieldState extends State<battle_field> {
                     if (ran_num5 == ran_numx) {
                       print('正解です');
                       context0 = '正解です';
+                      get_point++;
                     } else {
                       print('間違っています');
                       context0 = '間違っています';
+                      get_point--;
                     }
                     setState(() {});
                   },
@@ -280,9 +276,11 @@ class _battle_fieldState extends State<battle_field> {
                     if (ran_num6 == ran_numx) {
                       print('正解です');
                       context0 = '正解です';
+                      get_point++;
                     } else {
                       print('間違っています');
                       context0 = '間違っています';
+                      get_point--;
                     }
                     setState(() {});
                   },
@@ -301,6 +299,44 @@ class _battle_fieldState extends State<battle_field> {
         child: Icon(Icons.savings),
       ),*/
     );
+  }
+
+  void touch() {
+    GestureDetector(
+      onTap: () {},
+    );
+  }
+
+  void icon_press() {
+    setState(() {
+      ran_numx = Random().nextInt(6);
+      context0 = String_Data[ran_numx].toString();
+
+      int ran_num0 = Random().nextInt(6);
+      int ran_num1 = Random().nextInt(6);
+      int ran_num2 = Random().nextInt(6);
+      int ran_num3 = Random().nextInt(6);
+      int ran_num4 = Random().nextInt(6);
+      int ran_num5 = Random().nextInt(6);
+      int ran_num6 = Random().nextInt(6);
+
+      /*_Data0 = _Data[ran_num0].assets_image;
+                            _Data1 = _Data[ran_num1].assets_image;
+                            _Data2 = _Data[ran_num2].assets_image;
+                            _Data3 = _Data[ran_num3].assets_image;
+                            _Data4 = _Data[ran_num4].assets_image;
+                            _Data5 = _Data[ran_num5].assets_image;
+                            _Data6 = _Data[ran_num6].assets_image;
+
+                            Sub_svg0 = _Data[ran_num0].assets_svg;
+                            Sub_svg1 = _Data[ran_num1].assets_svg;
+                            Sub_svg2 = _Data[ran_num2].assets_svg;
+                            Sub_svg3 = _Data[ran_num3].assets_svg;
+                            Sub_svg4 = _Data[ran_num4].assets_svg;
+                            Sub_svg5 = _Data[ran_num5].assets_svg;
+                            Sub_svg6 = _Data[ran_num6].assets_svg;*/
+      setState(() {});
+    });
   }
 
   Future<String> getDataAsset(String path) async {
