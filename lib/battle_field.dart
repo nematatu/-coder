@@ -113,7 +113,7 @@ class _battle_fieldState extends State<battle_field> {
     super.initState();
     image_name = widget.value;
     view_icon = widget.icon;
-    _timer = Timer(Duration(seconds: 3), () {
+    _timer = Timer(Duration(seconds: 10), () {
       Navigator.push(
         context,
         MaterialPageRoute(

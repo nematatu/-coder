@@ -14,6 +14,9 @@ class _battle_pageState extends State<battle_page> {
   static var select_icon = '';
   String icon_number1 = 'GitHub';
   String icon_number2 = 'PhotoShop';
+  String icon_number3 = 'Python';
+  String icon_number4 = 'java';
+  bool _isPressed = false;
 
   @override
   build(BuildContext context) {
@@ -28,7 +31,7 @@ class _battle_pageState extends State<battle_page> {
               Container(
                 padding: EdgeInsets.only(top: 130),
                 child: const Text(
-                  'キーワードを入力してください',
+                  'キーワードを入力してゲーム開始！',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.normal,
@@ -56,13 +59,32 @@ class _battle_pageState extends State<battle_page> {
                 ],
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   TextButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith(
+                              (Set<MaterialState> states) {
+                            Color? color = Colors.transparent;
+
+                            if (states.contains(MaterialState.hovered)) {
+                              color = Color.lerp(color, Colors.black, 0.3);
+                            }
+                            if (_isPressed || states.contains(MaterialState.pressed)) {
+                              color = Color.lerp(color, Colors.red, 0.5);
+                            }
+                            return color;
+                          }),
+                    ),
                     onPressed: () {
-                      select_icon = icon_number1;
+                      setState(() {
+                        _isPressed = !_isPressed;
+                        if(_isPressed){
+                          select_icon = icon_number1;
+                        }
+                      });
                     },
                     child: SizedBox(
                       child: SvgPicture.asset(
@@ -74,7 +96,7 @@ class _battle_pageState extends State<battle_page> {
                   ),
                   TextButton(
                     onPressed: () {
-                      select_icon = icon_number2;
+                      select_icon = icon_number3;
                     },
                     child: SizedBox(
                       child: SvgPicture.asset(
@@ -85,8 +107,39 @@ class _battle_pageState extends State<battle_page> {
                     ),
                   ),
                   TextButton(
+                    onPressed: () {
+                      select_icon = icon_number4;
+                    },
+                    child: SizedBox(
+                      child: SvgPicture.asset(
+                        'assets/images/Python/Python.svg',
+                      ),
+                      width: 70,
+                      height: 70,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      select_icon = icon_number2;
+                    },
+                    child: SizedBox(
+                      child: SvgPicture.asset(
+                        'assets/images/java/java.svg',
+                      ),
+                      width: 70,
+                      height: 70,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  TextButton(
                     child: const Text(
-                      '過去に作成した札を使用',
+                      '札一覧',
                     ),
                     onPressed: () {
                       Navigator.push(
